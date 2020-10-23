@@ -1,11 +1,30 @@
 package com.revature.controllers;
 
+import com.revature.models.Event;
+import com.revature.services.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/event")
 public class EventController {
+
+    private EventService eventService;
+
+    @Autowired
+    public EventController(EventService service) {
+        this.eventService = service;
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Event saveEvent(@RequestBody Event event) {
+        System.out.println(event);
+        return eventService.save(event);
+    }
 
 
 }

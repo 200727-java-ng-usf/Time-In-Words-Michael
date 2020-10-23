@@ -4,8 +4,23 @@ server:
 spring:
   application:
     name: time-in-words
+  h2:
+    console:
+      enabled: true
+      path: /h2
   datasource:
-    url: jdbc:postgresql://revature-training.cveu74hasekl.us-east-1.rds.amazonaws.com:5432/postgres
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: Ultimate1!
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

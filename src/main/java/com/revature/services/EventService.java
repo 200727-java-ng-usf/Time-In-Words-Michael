@@ -3,18 +3,29 @@ package com.revature.services;
 import com.revature.models.Event;
 import com.revature.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+@Service
 public class EventService {
 
-    @Autowired
     EventRepository eventRepository;
+
+    public EventService() {
+        super();
+    }
+
+    @Autowired
+    public EventService(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
+    }
 
     @Transactional
     public Event save(Event event) {
+        System.out.println(event);
         return eventRepository.save(event);
     }
 

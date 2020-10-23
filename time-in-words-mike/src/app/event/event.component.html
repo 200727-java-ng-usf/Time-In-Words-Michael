@@ -1,0 +1,28 @@
+<div id="page-container">
+    <header id="page-header">New Event!</header>
+
+<div id="newEvent-container">
+
+    <form [formGroup]="newEventForm" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="event">Event</label>
+            <input id="event" type="text" class="form-control" formControlName="event"/>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input id="location" type="text" class="form-control" formControlName="location"/>
+        </div>
+
+        <div class="form-group">
+            <label for="time">Date & Time</label>
+            <input id="time" type="text" class="form-control" formControlName="time"/>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+</div>
+</div>
