@@ -1,0 +1,11 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: time-in-words
+  datasource:
+    url: jdbc:postgresql://revature-training.cveu74hasekl.us-east-1.rds.amazonaws.com:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: Ultimate1!
